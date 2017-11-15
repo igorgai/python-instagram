@@ -136,7 +136,7 @@ class InstagramAPI(oauth2.OAuth2API):
 
     location_recent_media = bind_method(
                 path="/locations/{location_id}/media/recent",
-                accepts_parameters=MEDIA_ACCEPT_PARAMETERS + ['location_id'],
+                accepts_parameters=MEDIA_ACCEPT_PARAMETERS + ['min_id', 'location_id'],
                 root_class=Media,
                 paginates=True)
 
@@ -159,7 +159,7 @@ class InstagramAPI(oauth2.OAuth2API):
 
     tag_recent_media = bind_method(
                 path="/tags/{tag_name}/media/recent",
-                accepts_parameters=['count', 'max_tag_id', 'tag_name'],
+                accepts_parameters=['count', 'min_tag_id', 'max_tag_id', 'tag_name'],
                 root_class=Media,
                 paginates=True)
 
